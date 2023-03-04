@@ -3,16 +3,15 @@ pool:
   vmImage: ubuntu
 trigger: 
   - master 
-stages:
-  - stage:  
+jobs:
+  - job:  
       steps:  
         - task: Maven@3
           inputs:
-          mavenPOMFile: 'pom.xml' 
-          goals: 'package'
-          publishJUnitResults: true
-          testResultsFiles: '**/surefire-reports/TEST-*.xml'
-          javaHomeOption: 'JDKVersion'
-          jdkVersionOption: '1.11'
-          mavenVersionOption: 'Default'
-
+            mavenPOMFile: 'pom.xml' 
+            goals: 'package'
+            publishJUnitResults: true
+            testResultsFiles: '**/surefire-reports/TEST-*.xml'
+            javaHomeOption: 'JDKVersion'
+            jdkVersionOption: '1.11'
+            mavenVersionOption: 'Default'
