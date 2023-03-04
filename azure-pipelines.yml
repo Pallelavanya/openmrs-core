@@ -1,17 +1,17 @@
 pool:
   name: Azure Pipelines 
-  vmImage: ubuntu
+  vmImage: 'ubuntu-22.04'
 trigger: 
   - master 
 jobs:
   - job:  
-      steps:  
-        - task: Maven@3
-          inputs:
-            mavenPOMFile: 'pom.xml' 
-            goals: 'package'
-            publishJUnitResults: true
-            testResultsFiles: '**/surefire-reports/TEST-*.xml'
-            javaHomeOption: 'JDKVersion'
-            jdkVersionOption: '1.11'
-            mavenVersionOption: 'Default'
+    steps:  
+      - task: Maven@3
+        inputs:
+          mavenPOMFile: 'pom.xml' 
+          goals: 'package'
+          publishJUnitResults: true
+          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          javaHomeOption: 'JDKVersion'
+          jdkVersionOption: '1.11'
+          mavenVersionOption: 'Default'
